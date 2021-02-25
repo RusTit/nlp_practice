@@ -44,6 +44,9 @@ const main = async () => {
       case 'run.ls':
         await runCommandHandler('ls -al');
         break;
+      case 'exit':
+        connector.close();
+        break;
       default:
         console.log(`Skipping case: ${response.intent}`);
         break;

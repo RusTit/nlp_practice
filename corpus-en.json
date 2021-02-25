@@ -34,6 +34,17 @@
       "answers": [
         { "answer": "show files in the directory" }
       ]
+    },
+    {
+      "intent": "exit",
+      "utterances": [
+        "exit",
+        "quit",
+        "stop the app"
+      ],
+      "answers": [
+        { "answer": "stopping the app" }
+      ]
     }
   ]
 }
