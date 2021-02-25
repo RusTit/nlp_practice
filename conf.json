@@ -6,5 +6,5 @@
       ]
     }
   },
-  "use": ["Basic", "ConsoleConnector"]
+  "use": ["Basic"]
 }
