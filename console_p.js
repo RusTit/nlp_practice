@@ -1,6 +1,6 @@
 const { ConsoleConnector } = require('@nlpjs/console-connector');
 const { dockStart } = require('@nlpjs/basic');
-const { exec } = require('child_process');
+const { exec, spawn } = require('child_process');
 
 const runCommand = async command => {
   return new Promise((resolve, reject) => {
@@ -24,6 +24,26 @@ async function runCommandHandler(command) {
   }
 }
 
+function runCommandWithoutWaitingHandler(command, args = []) {
+  try {
+    const childProcess = spawn(command, args);
+
+    childProcess.stdout.on('data', data => {
+      console.log(`stdout: ${data}`);
+    });
+
+    childProcess.stderr.on('data', data => {
+      console.error(`stderr: ${data}`);
+    });
+
+    childProcess.on('close', code => {
+      console.log(`child process (${command}) exited with code ${code}`);
+    });
+  } catch (e) {
+    console.error(`Error running: ${command} (args: ${args.join(', ')})`);
+  }
+}
+
 const main = async () => {
   const dock = await dockStart();
   const nlp = dock.get('nlp');
@@ -36,7 +56,7 @@ const main = async () => {
     console.log(`NLP answer: ${response.answer}`);
     switch (response.intent) {
       case 'run.browser':
-        await runCommandHandler('chromium --version');
+        runCommandWithoutWaitingHandler('chromium');
         break;
       case 'run.test':
         await runCommandHandler('npm test');
