@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "console": "node console_p.js",
-    "test": "echo 'No tests here, but imagine that those I created'"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
