@@ -42,7 +42,7 @@ const main = async () => {
       const response = await nlp.process('en', text);
       await bot.reply(
         message,
-        `I heard a message! text: ${message.text}, value: ${message.value}, NLP answer: ${response.answer}`
+        `I heard a message! text: ${message.text}, value: ${message.value}, NLP answer: ${response.answer} - ${response.intent}`
       );
     } else {
       await bot.reply(
