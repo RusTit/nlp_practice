@@ -3,10 +3,21 @@ const { Botkit } = require('botkit');
 
 require('dotenv').config(); // load env vars from `.env` file
 
+const {
+  CLIENT_ID,
+  CLIENT_SECRET,
+  VERIFICATION_TOKEN,
+  CLIENT_SIGNING_SECRET,
+  BOT_TOKEN,
+} = process.env;
+
 // https://botkit.ai/docs/v4/reference/slack.html#SlackAdapterOptions
 const adapter = new SlackAdapter({
-  clientSigningSecret: process.env.SLACK_SECRET,
-  botToken: process.env.SLACK_TOKEN,
+  clientId: CLIENT_ID,
+  clientSecret: CLIENT_SECRET,
+  botToken: BOT_TOKEN,
+  clientSigningSecret: CLIENT_SIGNING_SECRET,
+  verificationToken: VERIFICATION_TOKEN,
 });
 
 const controller = new Botkit({
