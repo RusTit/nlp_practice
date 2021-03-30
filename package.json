@@ -2,11 +2,9 @@
   "name": "nlp_practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "console_p.js",
   "scripts": {
-    "start": "node index.js",
-    "console": "node console_p.js",
-    "test": "echo 'No tests here, but imagine that those I created'"
+    "start": "node console_p.js"
   },
   "repository": {
     "type": "git",
