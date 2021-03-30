@@ -4,7 +4,8 @@
   "description": "",
   "main": "console_p.js",
   "scripts": {
-    "start": "node console_p.js"
+    "start": "node console_p.js",
+    "slack:proto": "node index.js"
   },
   "repository": {
     "type": "git",
